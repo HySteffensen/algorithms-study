@@ -1,7 +1,7 @@
 Algorithms Study
 ================================
 
-This repository is an algorithms study in JavaScript. 
+This repository is an algorithms study in JavaScript, mostly from leetcode.com. 
 
 To download and install the build environment on your computer:
 ---------------------------------------------------------------
