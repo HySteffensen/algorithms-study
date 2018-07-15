@@ -16,7 +16,7 @@
             }
             throw new Error("Error: Target Not Found");
         }
-
+        
         function twoSumsHashTwoPass(target, nums) {
             var map = new Map();
             var i;
@@ -28,6 +28,7 @@
                     return [i, map.get(target - nums[i])];
                 }
             }
+            throw new Error("Error: Target Not Found");
         }
         
         it("find the sum of two numbers in an array that equal the target", function() {
@@ -38,6 +39,9 @@
         it("returns an error if no combination is found that equals the target", function() {
             assert.throws(function() {
                 twoSumsBruteForce(9, [3, 7, 11, 15]);
+            });
+            assert.throws(function() {
+                twoSumsHashTwoPass(9, [3, 7, 11, 15]);
             });
         });
     });
