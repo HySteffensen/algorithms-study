@@ -30,10 +30,23 @@
             }
             throw new Error("Error: Target Not Found");
         }
+
+        function twoSumsHashOnePass(target, nums) {
+            var map = new Map();
+            var i;
+            for (i = 0; i < nums.length; i++) {
+                map.set(nums[i], i);
+                if (map.get(target - nums[i]) !== undefined) {
+                    return [map.get(target - nums[i]), i];
+                }
+            }
+            throw new Error("Error: Target Not Found");
+        }
         
         it("find the sum of two numbers in an array that equal the target", function() {
             assert.deepEqual(twoSumsBruteForce(9, [2, 7, 11, 15]), [0, 1]);
             assert.deepEqual(twoSumsHashTwoPass(9, [2, 7, 11, 15]), [0, 1]);
+            assert.deepEqual(twoSumsHashOnePass(9, [2, 7, 11, 15]), [0, 1]);
         });
         
         it("returns an error if no combination is found that equals the target", function() {
@@ -42,6 +55,9 @@
             });
             assert.throws(function() {
                 twoSumsHashTwoPass(9, [3, 7, 11, 15]);
+            });
+            assert.throws(function() {
+                twoSumsHashOnePass(9, [3, 7, 11, 15]);
             });
         });
     });
