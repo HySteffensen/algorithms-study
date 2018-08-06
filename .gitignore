@@ -16,3 +16,9 @@ node_modules/
 
 # Scratch
 scratch.txt
+
+# vs code
+.vscode
+
+# dolphin
+.directory
